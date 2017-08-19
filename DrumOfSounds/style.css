@@ -1,0 +1,53 @@
+body {
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+	align-items: center;
+	background: url('https://netology-code.github.io/hj-homeworks/html-element-collection/drum-machine/i/drum-machine.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.drum-kit {
+	margin: 0;
+	padding: 0 2em;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	list-style: none;
+	flex-wrap: wrap;
+}
+
+.drum-kit__drum {
+	cursor: pointer;
+	display: block;
+	width: 30%;
+	text-align: center;
+	padding: 2em 0;
+	margin: .5em 0;
+	border: .5em solid #fff;
+	border-radius: 35px;
+	color: #fff;
+	transition: 50ms ease-in;
+	background: rgba(0, 0, 0, 0.7);
+
+&:hover {
+	 transform: scale(1.1);
+	 transition: 50ms ease-in;
+ }
+
+
+&--active {
+	 background: #fff;
+	 color: #000;
+	 transform: scale(1.1);
+ }
+
+
+&__type {
+	 font-size: 1.4em;
+	 font-weight: bold;
+	 user-select: none;
+	 text-transform: uppercase;
+ }
+}
