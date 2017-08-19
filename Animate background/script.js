@@ -4,6 +4,8 @@ let arrayCross = [];
 let arrayRing = [];
 let width = window.innerWidth;
 let height = window.innerHeight;
+let nextPoint;
+
 canvas.width = width;
 canvas.height = height;
 
@@ -36,9 +38,9 @@ function reselectFunc() {
 
 
 
-function drawBackground() {
-	let randomCount = getRandomArbitrary(50, 150).toFixed(0);
-	for (let i = 0; i < +randomCount ; i++) {
+function prepareFacilities() {
+	let count = getRandomArbitrary(50, 150).toFixed(0);
+	for (let i = 0; i < +count ; i++) {
 		let angle = getRandomArbitrary(0, 360);
 		let size = getRandomArbitrary(0.1, 0.6).toFixed(1);
 		let radiusCircle = 12 * size;
@@ -105,9 +107,9 @@ setInterval(() => {
 
 	arrayCross.forEach(element => {
 		drawCross(element.x, element.y, element.size, element.angle, element.lineWidth);
-		let coords = element.nextPoint(element.x, element.y, Date.now());
-		element.x = coords.x;
-		element.y = coords.y;
+		// let coords = element.nextPoint(element.x, element.y, Date.now());
+		// element.x = coords.x;
+		// element.y = coords.y;
 		element.angle += +getRandomArbitrary(-0.2, 0.2).toFixed(2);
 	});
 
@@ -119,9 +121,7 @@ setInterval(() => {
 	});
 
 },1000/20);
-drawBackground();
-
-
+prepareFacilities();
 
 
 
