@@ -1,0 +1,2 @@
+# simplStaticSlider
+simplStaticSlider
