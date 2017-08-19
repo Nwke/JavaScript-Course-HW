@@ -1,6 +1,5 @@
 let canvas = document.querySelector('#draw');
 let ctx  = canvas.getContext('2d');
-let lineWidth = 100;
 let currentHue = 0;
 
 let opts = {
@@ -68,3 +67,23 @@ function draw(e) {
 	ctx.lineWidth = opts.lineWidth;
 	ctx.stroke();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
