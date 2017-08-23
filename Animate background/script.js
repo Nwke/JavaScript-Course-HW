@@ -15,8 +15,6 @@ function getRandomArbitrary(min, max) {
 }
 
 
-
-
 function reselectFunc() {
 	if ( +getRandomArbitrary(0,1).toFixed(0) % 2 === 0 ) {
 		nextPoint = function nextPoint(x, y, time) {
@@ -37,9 +35,8 @@ function reselectFunc() {
 
 
 
-
 function prepareFacilities() {
-	let count = getRandomArbitrary(50, 150).toFixed(0);
+	let count = getRandomArbitrary(255, 355).toFixed(0);
 	for (let i = 0; i < +count ; i++) {
 		let angle = getRandomArbitrary(0, 360);
 		let size = getRandomArbitrary(0.1, 0.6).toFixed(1);
@@ -60,6 +57,9 @@ function prepareFacilities() {
 			nextPoint,
 			lineWidth
 		});
+
+		 coordX = getRandomArbitrary(0, canvas.width);
+		 coordY = getRandomArbitrary(0, canvas.height);
 
 		reselectFunc();
 		arrayRing.push({
@@ -106,18 +106,14 @@ setInterval(() => {
 	ctx.clearRect(0, 0, width, height);
 
 	arrayCross.forEach(element => {
-		drawCross(element.x, element.y, element.size, element.angle, element.lineWidth);
-		// let coords = element.nextPoint(element.x, element.y, Date.now());
-		// element.x = coords.x;
-		// element.y = coords.y;
+		let coords = element.nextPoint(element.x, element.y, Date.now());
+		drawCross(coords.x, coords.y, element.size, element.angle, element.lineWidth);
 		element.angle += +getRandomArbitrary(-0.2, 0.2).toFixed(2);
 	});
 
 	arrayRing.forEach(element => {
-		drawRing(element.x, element.y, element.size, element.lineWidth);
-		let coords = element.nextPoint(element.x, element.y, Date.now());
-		element.x = coords.x;
-		element.y = coords.y;
+		let	 coords = element.nextPoint(element.x, element.y, Date.now());
+		drawRing(coords.x, coords.y, element.size, element.lineWidth);
 	});
 
 },1000/20);
