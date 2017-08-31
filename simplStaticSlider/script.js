@@ -1,53 +1,14 @@
-/**
- * Created by Denis on 29.07.2017.
- */
-
-document.addEventListener('DOMContentLoaded', readSlider);
-const placePic = document.querySelector('#slider');
 let count = 0;
-function readSlider() {
-	const arrPic = ["https://netology-code.github.io/hj-homeworks/browser/slider/i/airmax-jump.png",
-		"https://netology-code.github.io/hj-homeworks/browser/slider/i/airmax-on-foot.png",
-		"https://netology-code.github.io/hj-homeworks/browser/slider/i/airmax-playground.png",
-		"https://netology-code.github.io/hj-homeworks/browser/slider/i/airmax-top-view.png",
-		"https://netology-code.github.io/hj-homeworks/browser/slider/i/airmax.png"];
-	placePic.src = arrPic[count];
+
+function swapPic() {
+	const listImg = ['airmax-jump.png', 'airmax-on-foot.png', 'airmax-playground.png', 'airmax-top-view.png', 'airmax.png'];
+	let slider = document.querySelector('#slider');
+	let str = slider.src;
+	let lastOccur = str.lastIndexOf('/');
+	let lastSrc = str.slice(lastOccur + 1);
+	slider.src = str.replace(lastSrc, listImg[count % listImg.length]);
 	count++;
-	if(count === arrPic.length) count = 0;
 }
+swapPic();
 
-setInterval(readSlider, 5000);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+setInterval(swapPic, 5000);
