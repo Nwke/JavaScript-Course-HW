@@ -26,9 +26,9 @@ let countMusic = 0;
 
 
 changePlayerMode.addEventListener('click', changeMode);
-stop.addEventListener('click', stopPlaying);
-next.addEventListener('click', nextMelody);
-back.addEventListener('click', prevMelody);
+stop.addEventListener('click', onStop);
+next.addEventListener('click', onNext);
+back.addEventListener('click', onBack);
 
 function changeMode() {
 	if (wrapperPlayer.classList.contains('play')) {
@@ -54,36 +54,27 @@ function onPause() {
 	wrapperPlayer.classList.remove('play');
 }
 
-function stopPlaying() {
+function onStop() {
 	onPause();
 	player.currentTime = 0;
 }
 
-function nextMelody() {
+function onNext() {
 	let instReproduce = false;
 	if (wrapperPlayer.classList.contains('play')) instReproduce = true;
 	countMusic = countMusic === 2 ? 0 : countMusic + 1;
-	stopPlaying();
+	onStop();
 	changeTitleMelodies();
 	player.src = listMelodies[countMusic];
 	if ( instReproduce) onPlay();
 }
 
-function prevMelody() {
+function onBack() {
 	let instReproduce = false;
 	if (wrapperPlayer.classList.contains('play')) instReproduce = true;
 	countMusic = countMusic === 0 ? 2 : countMusic - 1;
-	stopPlaying();
+	onStop();
 	changeTitleMelodies();
 	player.src = listMelodies[countMusic];
 	if ( instReproduce) onPlay();
 }
-
-function showKey(event) { if (event.repeat) { console.log(`Повторное нажатие ${event.code}`); } else { console.log(`Нажата ${event.code}`); } }
-document.addEventListener('keydown', showKey);
-
-
-
-
-
-
