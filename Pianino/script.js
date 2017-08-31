@@ -1,99 +1,61 @@
-/**
- * Created by Denis on 29.07.2017.
- */
+const lowerModeMelody = [
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/lower/first.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/lower/second.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/lower/third.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/lower/fourth.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/lower/fifth.mp3'
+];
+const middleMelodyMode = [
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/middle/first.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/middle/second.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/middle/third.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/middle/fourth.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/middle/fifth.mp3'
+];
+const highMelodyMode = [
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/higher/first.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/higher/second.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/higher/third.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/higher/fourth.mp3',
+	'https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/higher/fifth.mp3'
+];
+const pianino = document.querySelector('ul.set');
 
-const ArrSrcLower = ["https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/lower/first.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/lower/second.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/lower/third.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/lower/fourth.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/lower/fifth.mp3"];
-const ArrSrcMiddle = ["https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/middle/first.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/middle/second.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/middle/third.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/middle/fourth.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/middle/fifth.mp3"];
-const ArrSrcHigh = ["https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/higher/first.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/higher/second.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/higher/third.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/higher/fourth.mp3","https://netology-code.github.io/hj-homeworks/event-object/piano/sounds/higher/fifth.mp3"];
-const audiAll = document.getElementsByTagName("audio");
-const liAll = document.getElementsByTagName("li");
-var high = 0;
-var low = 0;
-var ul = document.getElementsByClassName("set")[0];
-for (var butt of liAll) {
-	butt.addEventListener('click',ready);
-	document.addEventListener('keyup',ready);
-}
+pianino.addEventListener('click', pianinoPlaying);
+document.addEventListener('keydown', switchPlayrMode);
+document.addEventListener('keyup', switchPlayrMode);
 
-document.addEventListener('keydown',sws);
-
-
-
-function sws(e) {
-	if (e.altKey) {
-		ul.classList.remove("middle");
-		ul.classList.remove("lower");
-		ul.classList.add("higher");
-
+function switchPlayrMode(e) {
+	pianino.classList.remove('lower', 'higher', 'middle');
+	if (e.shiftKey) {
+		pianino.classList.add('lower');
 	}
-	else if (e.shiftKey) {
-		ul.classList.remove("middle");
-		ul.classList.remove("higher");
-		ul.classList.add("lower");
-
+	else if (e.altKey) {
+		pianino.classList.add('higher');
 	}
-	else if ((!e.shiftKey) && (!e.altKey)) {
-		ul.classList.remove("higher");
-		ul.classList.remove(("lower"));
-		ul.classList.add("middle");
-
+	else if (!e.shiftKey && !e.altKey) {
+		pianino.classList.add('middle');
 	}
 }
 
-function ready(event) {
-	if (event.altKey) {
-		ul.classList.remove("middle");
-		ul.classList.remove("lower");
-		ul.classList.add("higher");
-		for (let i = 0; i < audiAll.length; i++) {
-			audiAll[i].src = ArrSrcHigh[i];
-		}
-	}
-	else if (event.shiftKey) {
-		ul.classList.remove("middle");
-		ul.classList.remove("higher");
-		ul.classList.add("lower");
-		for (let i = 0; i < audiAll.length; i++) {
-			audiAll[i].src = ArrSrcLower[i];
-		}
-	}
-	else if ((!event.shiftKey) && (!event.altKey)) {
-		ul.classList.remove("higher");
-		ul.classList.remove("lower");
-		ul.classList.add("middle");
-		for (let i = 0; i < audiAll.length; i++) {
-			audiAll[i].src = ArrSrcMiddle[i];
-		}
-	}
-	event.target.lastElementChild.play();
+function addPlayerLinks(arrayLinks) {
+	const listPlayers = document.querySelectorAll('audio');
+	listPlayers.forEach((item, index) => {
+		item.src = arrayLinks[index]
+	});
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function pianinoPlaying(e) {
+	if (e.shiftKey && e.target.tagName === 'LI') {
+		addPlayerLinks(lowerModeMelody)
+	} else if (e.altKey && e.target.tagName === 'LI') {
+		addPlayerLinks(highMelodyMode)
+	} else if (!e.shiftKey && e.altKey && e.target.tagName === 'LI') {
+		addPlayerLinks(middleMelodyMode)
+	}
+	if (e.target.querySelector('audio')) {
+		e.target.querySelector('audio').play();
+	}
+}
+addPlayerLinks(middleMelodyMode);
