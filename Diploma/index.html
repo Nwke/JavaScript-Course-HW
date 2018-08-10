@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diplom</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/authStyle.css">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/livePhotoStyle.css">
+</head>
+<body>
+
+
+
+<main class="mainApp status-guest">
+
+    <div class="said-bar">
+        <button  type="button" class="btn btn-outline-primary btn-lg auth_sign btn-open-sign">Войти</button>
+
+        <div class="auth-btn">
+            <button  type="button" class="btn btn-outline-primary btn-lg auth_sign btn-open-reg">Зарегистрироваться</button>
+            <button  type="button" class="btn btn-outline-primary btn-lg auth_sign btn-out">Выйти</button>
+        </div>
+
+
+        <div class="user-profile camera-closed">
+            <h5 class="prifle-header">Профиль</h5>
+            <div class="user-avatar">
+                <img class="avatarProfile" src="https://www.appointbetterboards.co.nz/Custom/Appoint/img/avatar-large.png" alt="Avatar">
+            </div>
+            <div class="user-info">
+                <span class="text-bold">Ваше имя: <span class="text-answer nickname"> Anonimus </span></span>
+                <button class="toggleVersionAvatar">Поменять аватар</button>
+                <div class="form-check downPhotoBoxProfile hidden">
+                    <input class="form-check-input2-1 radio-down-photo" type="radio" name="exampleRadios2" id="exampleRadios4" value="down-comp" checked>
+                    <label class="form-check-label" for="exampleRadios4">
+                        Загрузить аватар
+                    </label>
+                    <div class="form-group box-inp-avatar-profile">
+                        <label for="avatarChange">Выбрать аватар</label>
+                        <input type="file" id="avatarChange" class="form-control-file inpAvatarProfile"  accept="image/*">
+                    </div>
+                </div>
+                <div class="form-check livePhotoBoxRadioProfile hidden">
+                    <input class="form-check-input2-2 radio-live-photo" type="radio" name="exampleRadios2" id="exampleRadios5" value="live">
+                    <label class="form-check-label" for="exampleRadios5">
+                        Сделать лайв-фото
+                    </label>
+
+                    <div class="photo-box2">
+                        <h1>Создать фото для аватарки</h1>
+                        <main class="container2">
+                            <div class="app2">
+                                <p id="error-message2"></p>
+                                <div class="controls" style="display: block">
+                                    <button type="button" id="take-photo2" title="Сделать снимок"><i class="material-icons">camera_alt</i></button>
+                                </div>
+                                <video class="videoProfile" src=""></video>
+                            </div>
+                            <div class="list2"></div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content status-sign">
+        <form class="formCreateCard">
+            <div class="control-buttons">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control question-card" placeholder="Вопрос карточки" required aria-label="" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control answer-card" placeholder="Ответ карточки" required aria-label="" aria-describedby="basic-addon1">
+                </div>
+
+                <button type="submit" class="btn btn-outline-success create-card">Создать карточку</button>
+            </div>
+
+        </form>
+
+
+        <div class="content-cards">
+
+        </div>
+
+        <main class="mainAuth authReg">
+
+            <div class="container">
+                <div class="main__section section_center">
+                    <div class="section__main-auth wow fadeInDownBig">
+                        <h2 class="main-auth__title text-effect-shadow">Регистрация</h2>
+                        <form class="main-auth__form" >
+                            <label for="login2">Email</label>
+                            <input type="text" class="margin-bot-md login"  id="login2" required autofocus>
+                            <label for="password2">Password</label>
+                            <input type="password" class="margin-bot-md password" id="password2" required>
+
+                            <span class="span-prev hidden">Превью аватарки</span>
+                            <img class="img-prev hidden" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX74r_G9hwSLR9frCU5izDgNGMNoqwoQXkTYjgR7TfhN7jmIWiRA" alt="prev">
+
+                            <span>Выберите одно из:</span>
+                            <div class="form-check">
+                                <input class="form-check-input default-choose" type="radio" name="exampleRadios" id="exampleRadios1" value="no-avatar" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Без аватара
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="down-comp">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Загрузить
+                                </label>
+                            </div>
+                            <div class="form-check livePhotoBoxRadioReg">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="live">
+                                <label class="form-check-label" for="exampleRadios3">
+                                    Сделать лайв-фото
+                                </label>
+                            </div>
+
+                            <div class="form-group inpAvatarBox hidden">
+                                <label for="ex">Выбрать аватар</label>
+                                <input type="file" class="form-control-file inpAvatar" id="ex" accept="image/*">
+                            </div>
+
+
+
+                            <div class="photo-box hidden">
+                                <h1>Создать фото для аватарки</h1>
+                                <main class="container">
+                                    <div class="app">
+                                        <p id="error-message"></p>
+                                        <div class="controls" style="display: block">
+                                            <button type="button" id="take-photo" title="Сделать снимок"><i class="material-icons">camera_alt</i></button>
+                                        </div>
+                                        <video src=""></video>
+                                    </div>
+                                    <div class="list"></div>
+                                </main>
+                            </div>
+                            <button type="submit" class="btn form__btn-submit mt-3 mb-3">Зарегистрироваться</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="alert alert-danger hidden" role="alert">
+                    This is a danger alert—check it out!
+                </div>
+            </div>
+
+        </main>
+
+        <main class="mainAuth authSign">
+            <div class="container">
+                <div class="main__section section_center">
+                    <div class="section__main-auth wow fadeInDownBig">
+                        <h2 class="main-auth__title text-effect-shadow">Вход</h2>
+                        <form class="main-auth__form">
+                            <label for="login1">Email</label>
+                            <input type="text" class="margin-bot-md login" id="login1" required autofocus>
+                            <label for="password1">Password</label>
+                            <input type="password" class="margin-bot-md password" id="password1" required>
+                            <button type="submit" class="btn form__btn-submit margin-top-md">Войти на сайт</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="alert alert-success alert-after-reg hidden" role="alert">
+                   Войдите в систему.
+                </div>
+                <div class="alert alert-danger hidden" role="alert">
+                    This is a danger alert—check it out!
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+
+</main>
+
+
+
+<template id="templateCard">
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Карточка памяти</div>
+        <div class="card-body">
+            <h5 class="card-title">Danger card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button type="button"
+                    data-text1="Показать ответ"
+                    data-text2="Скрыть ответ"
+                    class="btn btn-success btn-toggle">
+                Показать ответ
+            </button>
+        </div>
+    </div>
+</template>
+
+<template id="templateImgGallery">
+    <figure>
+        <img src="url">
+        <figcaption>
+            <a><i class="material-icons">check_box</i></a>
+            <a class="file_down" href="url" download="snapshot.png"><i class="material-icons">file_download</i></a>
+            <a><i class="material-icons">delete</i></a>
+        </figcaption>
+    </figure>`;
+</template>
+
+
+
+<!-- Для работы с firebase -->
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBypOJA105cnuAGB8ntQsmPb9BUHfQlqvM",
+        authDomain: "diplom-7d874.firebaseapp.com",
+        databaseURL: "https://diplom-7d874.firebaseio.com",
+        projectId: "diplom-7d874",
+        storageBucket: "diplom-7d874.appspot.com",
+        messagingSenderId: "854530478059"
+    };
+    firebase.initializeApp(config);
+</script>
+
+
+<script src="scripts/main2.js"></script>
+</body>
+</html>

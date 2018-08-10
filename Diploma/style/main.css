@@ -1,0 +1,188 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+
+.mainApp {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+
+    height: 100vh;
+}
+
+.said-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+
+    height: 100%;
+    padding: 20px;
+
+    background: #D3CCE3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.auth_sign {
+    margin: 5px 0;
+
+
+    background: aliceblue;
+}
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    height: auto;
+    margin: 30px 0;
+    padding: 10px 10px;
+
+
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.prifle-header {
+    margin: 15px auto;
+}
+
+
+
+.user-avatar {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 75%;
+
+}
+
+.avatarProfile {
+    width: 180px;
+    height: 150px;
+    padding: 10px;
+
+    border: 2px solid green;
+}
+
+.text-bold {
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+}
+
+.text-answer {
+    margin-left: 1px;
+    color: green;
+}
+/*        CONTENT          */
+
+.content {
+
+    padding: 20px;
+    height: 100%;
+
+    background: #606c88;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3f4c6b, #606c88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.control-buttons {
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    grid-template-columns: 0.8fr 1fr;
+
+    margin-bottom: 30px;
+}
+
+
+.content-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.card {
+    max-width: 400px;
+}
+
+
+.inp-rad {
+    width: auto;
+}
+
+.img-prev {
+    display: block;
+    width: 180px;
+    height: 150px;
+}
+
+.user-info {
+    width: auto;
+    height: auto;
+}
+
+
+/* STATE APPLICATION VISION */
+
+
+
+
+.status-guest .content .formCreateCard {
+    display: none;
+}
+
+.status-guest .content .content-cards {
+    display: none;
+}
+
+.status-guest .user-profile {
+    display: none;
+}
+
+.status-guest .said-bar .auth-btn .btn-out {
+    display: none;
+}
+
+
+.status-member .content .mainAuth {
+    display: none;
+}
+
+.status-member .said-bar .btn-open-sign {
+    display: none;
+}
+
+.status-member .said-bar .btn-open-reg {
+    display: none;
+}
+
+.camera-off .photo-box2 {
+    display: none;
+}
+
+.status-sign .authReg {
+    display: none;
+}
+
+.status-reg .authSign {
+    display: none;
+}
+
+
+/* STATE APPLICATION VISION END*/
+
+
+.hidden {
+    display: none;
+}
